@@ -46,9 +46,7 @@ body {
     list-style: none;
     padding: 0;
     position: relative;
-    border-radius: 12px; /* Rounded corners for the whole group */
-    
-    /* Outer Border: Subtle gradient visible mostly at corners */
+    border-radius: 12px; 
     border: 1px solid transparent;
     background-origin: border-box;
     background-clip: padding-box, border-box;
@@ -57,7 +55,7 @@ body {
         linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.2) 100%);
     
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    overflow: hidden; /* Clips the hover effects to the rounded corners */
+    overflow: hidden;
 }
 
 .menu li {
@@ -70,8 +68,8 @@ body {
     content: "";
     position: absolute;
     right: 0;
-    top: 20%; /* Fades in from top */
-    height: 60%; /* Fades out before bottom */
+    top: 20%;
+    height: 60%;
     width: 1px;
     background: linear-gradient(
         to bottom, 
@@ -96,16 +94,23 @@ body {
     color: #ffffff;
 }
 
-/* --------------------------- */
-
+/* --- RIGHT SIDE PORTAL TAG --- */
 .portal-tag {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.65rem;
+    text-align: right; /* Aligns text to the right side */
+    line-height: 1.2;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 4px 12px;
-    border-radius: 20px;
+    padding: 8px 16px;
+    border-radius: 12px;
+}
+
+.portal-tag span {
+    font-weight: 900; /* Boldest weight for APPLICATIONS */
+    font-size: 0.8rem;
+    color: #ffffff;
 }
 
 /* --- Main Display --- */
