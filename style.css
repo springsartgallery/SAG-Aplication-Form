@@ -40,10 +40,45 @@ body {
     width: auto;
 }
 
+/* --- THE JOINED BOX MENU --- */
 .menu {
     display: flex;
     list-style: none;
-    gap: 15px; /* Spacing between the boxed items */
+    padding: 0;
+    position: relative;
+    border-radius: 12px; /* Rounded corners for the whole group */
+    
+    /* Outer Border: Subtle gradient visible mostly at corners */
+    border: 1px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-image: 
+        linear-gradient(rgba(30, 30, 30, 1), rgba(30, 30, 30, 1)), 
+        linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.2) 100%);
+    
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Clips the hover effects to the rounded corners */
+}
+
+.menu li {
+    display: flex;
+    position: relative;
+}
+
+/* Divider Gradient at Meeting Points */
+.menu li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 20%; /* Fades in from top */
+    height: 60%; /* Fades out before bottom */
+    width: 1px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.15) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
 }
 
 .menu a {
@@ -51,31 +86,17 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
-    padding: 10px 20px;
-    border-radius: 12px; /* Rounded corners for the boxes */
-    position: relative;
-    transition: all 0.4s ease;
-    
-    /* The Box: Barely visible gradient background */
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
-    
-    /* The Border: Using a gradient that highlights corners (meeting points) */
-    border: 1px solid transparent;
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    background-image: 
-        linear-gradient(rgba(30, 30, 30, 0.9), rgba(30, 30, 30, 0.9)), 
-        linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.3) 100%);
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    background: transparent;
 }
 
 .menu a:hover {
-    /* Slightly brighter on hover to indicate selection */
-    background-image: 
-        linear-gradient(rgba(45, 45, 45, 0.9), rgba(45, 45, 45, 0.9)), 
-        linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.6) 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
 }
+
+/* --------------------------- */
 
 .portal-tag {
     color: rgba(255, 255, 255, 0.5);
@@ -94,7 +115,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 0; 
+    min-height: 0;
 }
 
 .viewer-container {
@@ -161,24 +182,18 @@ iframe {
     }
 
     .menu {
-        gap: 8px;
-        width: 100%;
-        justify-content: center;
+        width: fit-content;
+        border-radius: 8px;
     }
 
     .menu a {
         font-size: 0.75rem;
-        padding: 8px 12px;
-        border-radius: 8px;
+        padding: 10px 15px;
     }
 
-    .portal-tag {
-        display: none; 
-    }
+    .portal-tag { display: none; }
 
-    .main-display {
-        padding: 10px;
-    }
+    .main-display { padding: 10px; }
 
     .placeholder h2 { font-size: 1.5rem; }
 }
