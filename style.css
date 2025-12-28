@@ -7,7 +7,7 @@
 
 body {
     height: 100vh;
-    background-color: #2e2e2e; /* Solid Grey Background */
+    background-color: #2e2e2e;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -18,7 +18,6 @@ body {
     height: 80px;
     background: rgba(30, 30, 30, 0.9);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
@@ -40,77 +39,64 @@ body {
     width: auto;
 }
 
-/* --- THE JOINED BOX MENU --- */
+/* --- SEPARATE BOXED MENU BUTTONS --- */
 .menu {
     display: flex;
     list-style: none;
-    padding: 0;
-    position: relative;
-    border-radius: 12px; 
-    border: 1px solid transparent;
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    background-image: 
-        linear-gradient(rgba(30, 30, 30, 1), rgba(30, 30, 30, 1)), 
-        linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.2) 100%);
-    
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+    gap: 15px; /* Spacing between the separate boxes */
 }
 
 .menu li {
     display: flex;
-    position: relative;
-}
-
-/* Divider Gradient at Meeting Points */
-.menu li:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 20%;
-    height: 60%;
-    width: 1px;
-    background: linear-gradient(
-        to bottom, 
-        rgba(255, 255, 255, 0) 0%, 
-        rgba(255, 255, 255, 0.15) 50%, 
-        rgba(255, 255, 255, 0) 100%
-    );
 }
 
 .menu a {
     color: #ffffff;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.9rem;
-    padding: 12px 24px;
+    font-size: 0.85rem;
+    padding: 10px 18px;
+    border-radius: 10px; /* Rounded corners for separate boxes */
+    position: relative;
     transition: all 0.3s ease;
-    background: transparent;
+    
+    /* The "Meeting Point" Glow: Gradient border effect */
+    border: 1px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-image: 
+        linear-gradient(rgba(40, 40, 40, 1), rgba(40, 40, 40, 1)), 
+        linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.2) 100%);
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .menu a:hover {
-    background: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
+    background-image: 
+        linear-gradient(rgba(55, 55, 55, 1), rgba(55, 55, 55, 1)), 
+        linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.4) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* --- RIGHT SIDE PORTAL TAG --- */
 .portal-tag {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.65rem;
-    text-align: right; /* Aligns text to the right side */
-    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.6rem;
+    text-align: right;
+    line-height: 1.3;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 8px 16px;
-    border-radius: 12px;
+    letter-spacing: 1.2px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
 }
 
 .portal-tag span {
-    font-weight: 900; /* Boldest weight for APPLICATIONS */
-    font-size: 0.8rem;
+    font-weight: 900; /* Bold text for APPLICATIONS */
+    font-size: 0.85rem;
     color: #ffffff;
+    display: block; /* Ensures it sits neatly on the second line */
 }
 
 /* --- Main Display --- */
@@ -132,7 +118,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 iframe {
@@ -155,7 +140,7 @@ iframe {
     width: 90%;
 }
 
-.placeholder h2 { font-size: 2rem; margin-bottom: 10px; opacity: 0.6; }
+.placeholder h2 { font-size: 2rem; opacity: 0.6; margin-bottom: 8px; }
 .placeholder p { opacity: 0.4; font-size: 1rem; }
 
 /* --- Footer --- */
@@ -169,36 +154,16 @@ iframe {
 }
 
 .bottom-footer p {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.7rem;
     letter-spacing: 0.5px;
 }
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
-    .top-nav {
-        height: auto;
-        padding: 15px 0;
-    }
-
-    .nav-content {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .menu {
-        width: fit-content;
-        border-radius: 8px;
-    }
-
-    .menu a {
-        font-size: 0.75rem;
-        padding: 10px 15px;
-    }
-
+    .top-nav { height: auto; padding: 15px 0; }
+    .nav-content { flex-direction: column; gap: 15px; }
+    .menu { gap: 10px; }
+    .menu a { font-size: 0.7rem; padding: 8px 12px; }
     .portal-tag { display: none; }
-
-    .main-display { padding: 10px; }
-
-    .placeholder h2 { font-size: 1.5rem; }
 }
