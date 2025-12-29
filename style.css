@@ -36,7 +36,7 @@ body {
 
 .logo { height: 35px; width: auto; }
 
-/* --- Connected Menu --- */
+/* --- Connected Menu (Desktop) --- */
 .menu-wrapper {
     display: flex;
     list-style: none;
@@ -107,7 +107,7 @@ iframe {
     width: 100%;
     height: 100%;
     border: none;
-    opacity: 0; /* Hidden until document loads */
+    opacity: 0;
     transition: opacity 0.5s ease;
 }
 
@@ -133,27 +133,36 @@ iframe {
     color: #555;
 }
 
-/* --- Mobile Fixes --- */
-@media (max-width: 850px) {
-    body { overflow-y: auto; height: auto; min-height: 100vh; }
-    .top-nav { height: auto; padding: 20px 0; position: relative; }
-    .nav-content { flex-direction: column; gap: 20px; }
+/* --- RESTORED PREVIOUS MOBILE VIEW --- */
+@media (max-width: 768px) {
+    .top-nav { height: auto; padding: 15px 0; position: relative; }
+    .nav-content { flex-direction: column; gap: 15px; }
     
+    /* Returning to separate boxed look */
     .menu-wrapper { 
-        flex-direction: column; 
-        width: 90%; 
-        border-radius: 12px;
-        padding: 1px;
+        background: none; 
+        box-shadow: none; 
+        padding: 0; 
+        gap: 10px; 
+        flex-wrap: wrap; 
+        justify-content: center; 
     }
     
-    .menu-wrapper li { width: 100%; background: transparent; }
-    .menu-wrapper a { width: 100%; text-align: center; padding: 15px; background: #282828; }
+    .menu-wrapper li { background: transparent; }
+    .junction { display: none; } /* Remove connecting line on mobile */
+
+    .menu-wrapper a { 
+        font-size: 0.7rem; 
+        padding: 10px 15px; 
+        border-radius: 10px; /* Boxed corners */
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(30, 30, 30, 0.9);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Resetting the desktop rounding logic for mobile boxes */
+    .menu-wrapper li:first-child a, 
+    .menu-wrapper li:last-child a { border-radius: 10px; }
     
-    /* Remove horizontal rounding and use vertical rounding for mobile stack */
-    .menu-wrapper li:first-child a { border-radius: 11px 11px 0 0; }
-    .menu-wrapper li:last-child a { border-radius: 0 0 11px 11px; }
-    
-    .junction { display: none; } /* Hide the glow line on mobile stack */
-    .portal-tag { text-align: center; }
-    .main-display { height: 500px; }
+    .portal-tag { display: none; }
 }
