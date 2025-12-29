@@ -15,11 +15,11 @@
             
             <!-- Connected Gradient Menu -->
             <ul class="menu-wrapper">
-                <li><a href="guidelines.pdf" target="content-viewer" onclick="hidePlaceholder()">Guidelines</a></li>
+                <li><a href="guidelines.pdf" target="content-viewer" onclick="loadContent(this)">Guidelines</a></li>
                 <li class="junction"></li>
-                <li><a href="application-form.pdf" target="content-viewer" onclick="hidePlaceholder()">Application Form</a></li>
+                <li><a href="application-form.pdf" target="content-viewer" onclick="loadContent(this)">Application Form</a></li>
                 <li class="junction"></li>
-                <li><a href="floor-plan.pdf" target="content-viewer" onclick="hidePlaceholder()">Floor Plan</a></li>
+                <li><a href="floor-plan.pdf" target="content-viewer" onclick="loadContent(this)">Floor Plan</a></li>
             </ul>
 
             <div class="portal-tag">
@@ -45,9 +45,14 @@
     </footer>
 
     <script>
-        function hidePlaceholder() {
+        function loadContent(element) {
+            // Hide welcome text
             document.getElementById('welcome-placeholder').style.display = 'none';
             document.getElementById('doc-viewer').style.opacity = '1';
+            
+            // Highlight active tab
+            document.querySelectorAll('.menu-wrapper a').forEach(a => a.classList.remove('active'));
+            element.classList.add('active');
         }
     </script>
 </body>
