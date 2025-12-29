@@ -149,7 +149,7 @@ iframe {
     }
 
     .menu-wrapper a { 
-        font-size: 0.65rem; /* Shrunk for mobile fit */
+        font-size: 1rem; /* Shrunk for mobile fit */
         padding: 8px 12px; /* Smaller padding to prevent overflow */
     }
 
