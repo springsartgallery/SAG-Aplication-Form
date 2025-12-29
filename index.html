@@ -3,32 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Springs Art Gallery</title>
+    <title>Springs Art Gallery Portal</title>
     <link rel="stylesheet" href="style.css">
     <link href="fonts.googleapis.com" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Top Navigation -->
     <nav class="top-nav">
         <div class="nav-content">
             <img src="logo.png" alt="Logo" class="logo">
             
-            <ul class="menu">
-                <li><a href="guidelines.pdf" target="content-viewer">Application Guidelines</a></li>
+            <!-- CONNECTED BOXED MENU -->
+            <ul class="menu-wrapper">
+                <li><a href="guidelines.pdf" target="content-viewer">Guidelines</a></li>
+                <li class="junction"></li>
                 <li><a href="application-form.pdf" target="content-viewer">Application Form</a></li>
+                <li class="junction"></li>
                 <li><a href="floor-plan.pdf" target="content-viewer">Floor Plan</a></li>
             </ul>
 
             <div class="portal-tag">
-                CALL FOR <br>
-                <span>APPLICATIONS</span>
+                Exhibition Programme 
+                <span>2026—2027</span>
             </div>
         </div>
     </nav>
 
+    <!-- Main Display Area -->
     <main class="main-display">
         <div class="viewer-container">
-            <iframe name="content-viewer" src="about:blank" title="Resource Viewer"></iframe>
+            <iframe name="content-viewer" src="about:blank"></iframe>
+            
             <div class="placeholder">
                 <h2>WELCOME</h2>
                 <p>Please select a document from the menu above to begin.</p>
@@ -36,8 +42,9 @@
         </div>
     </main>
 
+    <!-- Footer Area -->
     <footer class="bottom-footer">
-        <p>&copy; 2026 Springs Art Gallery. All rights reserved.</p>
+        <p>Springs Art Gallery &copy; 2026. All Rights Reserved.</p>
     </footer>
 
 </body>
