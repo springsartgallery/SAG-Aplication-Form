@@ -41,7 +41,7 @@
         </div>
     </main>
 
-    <!-- Professional Light Grey Footer Bar -->
+    <!-- Dark Grey Transparent Footer -->
     <footer class="bottom-footer">
         <div class="footer-inner">
             <p>Springs Art Gallery &copy; 2026. All Rights Reserved.</p>
@@ -51,11 +51,9 @@
 
     <script>
         function loadDoc(element) {
-            // Hide welcome text immediately
             document.getElementById('welcome-placeholder').style.display = 'none';
             document.getElementById('doc-viewer').style.opacity = '1';
             
-            // Manage active state
             document.querySelectorAll('.menu-wrapper a').forEach(a => a.classList.remove('active'));
             element.classList.add('active');
         }
